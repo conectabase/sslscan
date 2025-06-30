@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/conectabase/sslscan/internal/models"
+	"github.com/conectabase/sslscan/pkg/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/sslscan/sslscan-go/internal/models"
-	"github.com/sslscan/sslscan-go/pkg/utils"
 )
 
 // Config represents the global application configuration

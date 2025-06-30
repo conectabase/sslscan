@@ -8,8 +8,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/sslscan/sslscan-go/internal/models"
-	"github.com/sslscan/sslscan-go/pkg/utils"
+	"github.com/conectabase/sslscan/internal/models"
+	"github.com/conectabase/sslscan/pkg/utils"
 )
 
 // Connection represents a network connection

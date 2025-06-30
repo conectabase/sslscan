@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/conectabase/sslscan/internal/config"
+	"github.com/conectabase/sslscan/pkg/output"
+	"github.com/conectabase/sslscan/pkg/ssl"
+	"github.com/conectabase/sslscan/pkg/utils"
 	"github.com/spf13/cobra"
-	"github.com/sslscan/sslscan-go/internal/config"
-	"github.com/sslscan/sslscan-go/pkg/output"
-	"github.com/sslscan/sslscan-go/pkg/ssl"
-	"github.com/sslscan/sslscan-go/pkg/utils"
 )
 
 var (
@@ -19,9 +19,9 @@ func main() {
 	cfg = config.NewConfig()
 
 	rootCmd := &cobra.Command{
-		Use:   "sslscan-go [host]",
+		Use:   "sslscan [host]",
 		Short: "SSL/TLS security scanner written in Go",
-		Long: `sslscan-go is a comprehensive SSL/TLS security scanner that tests for:
+		Long: `sslscan is a comprehensive SSL/TLS security scanner that tests for:
 - Supported protocols (SSLv2, SSLv3, TLSv1.0, TLSv1.1, TLSv1.2, TLSv1.3)
 - Cipher suites and their security
 - Certificate analysis and validation
@@ -29,9 +29,9 @@ func main() {
 - Security misconfigurations
 
 Example usage:
-  sslscan-go example.com
-  sslscan-go --port 8443 --xml results.xml example.com
-  sslscan-go --junit results.xml --verbose example.com`,
+  sslscan example.com
+  sslscan --port 8443 --xml results.xml example.com
+  sslscan --junit results.xml --verbose example.com`,
 		Args: cobra.MaximumNArgs(1),
 		RunE: runScan,
 	}
@@ -68,7 +68,7 @@ func runScan(cmd *cobra.Command, args []string) error {
 
 	// Show version if requested
 	if cfg.Version {
-		fmt.Printf("sslscan-go version 1.0.0\n")
+		fmt.Printf("sslscan version 1.0.0\n")
 		return nil
 	}
 

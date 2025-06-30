@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/sslscan/sslscan-go/internal/models"
-	"github.com/sslscan/sslscan-go/pkg/network"
-	"github.com/sslscan/sslscan-go/pkg/utils"
+	"github.com/conectabase/sslscan/internal/models"
+	"github.com/conectabase/sslscan/pkg/network"
+	"github.com/conectabase/sslscan/pkg/utils"
 )
 
 // Scanner represents the SSL scanner

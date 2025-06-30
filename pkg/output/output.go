@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/sslscan/sslscan-go/internal/models"
-	"github.com/sslscan/sslscan-go/pkg/utils"
+	"github.com/conectabase/sslscan/internal/models"
+	"github.com/conectabase/sslscan/pkg/utils"
 )
 
 // OutputManager manages output in different formats

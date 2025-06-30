@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/sslscan/sslscan-go/internal/config"
-	"github.com/sslscan/sslscan-go/internal/models"
-	"github.com/sslscan/sslscan-go/pkg/output"
-	"github.com/sslscan/sslscan-go/pkg/ssl"
+	"github.com/conectabase/sslscan/internal/config"
+	"github.com/conectabase/sslscan/internal/models"
+	"github.com/conectabase/sslscan/pkg/output"
+	"github.com/conectabase/sslscan/pkg/ssl"
 )
 
 func main() {

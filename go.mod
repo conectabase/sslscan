@@ -1,4 +1,4 @@
-module github.com/sslscan/sslscan-go
+module github.com/conectabase/sslscan
 
 go 1.21
 

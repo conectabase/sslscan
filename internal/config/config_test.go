@@ -3,8 +3,8 @@ package config
 import (
 	"testing"
 
+	"github.com/conectabase/sslscan/internal/models"
 	"github.com/spf13/cobra"
-	"github.com/sslscan/sslscan-go/internal/models"
 	"github.com/stretchr/testify/assert"
 )
 

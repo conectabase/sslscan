@@ -1,4 +1,4 @@
-# Dockerfile para sslscan-go
+# Dockerfile para sslscan
 
 # Estágio de build
 FROM golang:1.21-alpine AS builder
@@ -19,7 +19,7 @@ RUN go mod download
 COPY . .
 
 # Compilar o aplicativo
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o sslscan-go cmd/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o sslscan cmd/main.go
 
 # Estágio final
 FROM scratch
@@ -29,7 +29,7 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
 
 # Copiar o binário compilado
-COPY --from=builder /app/sslscan-go /sslscan-go
+COPY --from=builder /app/sslscan /sslscan
 
 # Definir variáveis de ambiente
 ENV TZ=UTC
@@ -38,7 +38,7 @@ ENV TZ=UTC
 EXPOSE 443
 
 # Definir o comando padrão
-ENTRYPOINT ["/sslscan-go"]
+ENTRYPOINT ["/sslscan"]
 
 # Argumentos padrão
 CMD ["--help"]

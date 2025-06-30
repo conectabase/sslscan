@@ -1,7 +1,7 @@
-# Makefile para sslscan-go
+# Makefile para sslscan
 
 # Variáveis
-BINARY_NAME=sslscan-go
+BINARY_NAME=sslscan
 MAIN_PATH=cmd/main.go
 BUILD_DIR=build
 VERSION=$(shell git describe --tags --always --dirty 2>/dev/null || echo "1.0.0")
@@ -39,19 +39,19 @@ build-all: clean
 	@mkdir -p $(BUILD_DIR)
 
 	# Linux AMD64
-	GOOS=linux GOARCH=amd64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-go-linux-amd64 $(MAIN_PATH)
+	GOOS=linux GOARCH=amd64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-linux-amd64 $(MAIN_PATH)
 
 	# Linux ARM64
-	GOOS=linux GOARCH=arm64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-go-linux-arm64 $(MAIN_PATH)
+	GOOS=linux GOARCH=arm64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-linux-arm64 $(MAIN_PATH)
 
 	# macOS AMD64
-	GOOS=darwin GOARCH=amd64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-go-darwin-amd64 $(MAIN_PATH)
+	GOOS=darwin GOARCH=amd64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-darwin-amd64 $(MAIN_PATH)
 
 	# macOS ARM64
-	GOOS=darwin GOARCH=arm64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-go-darwin-arm64 $(MAIN_PATH)
+	GOOS=darwin GOARCH=arm64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-darwin-arm64 $(MAIN_PATH)
 
 	# Windows AMD64
-	GOOS=windows GOARCH=amd64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-go-windows-amd64.exe $(MAIN_PATH)
+	GOOS=windows GOARCH=amd64 go build $(LDFLAGS) -o $(BUILD_DIR)/sslscan-windows-amd64.exe $(MAIN_PATH)
 
 	@echo "Multi-platform build complete!"
 
@@ -172,12 +172,12 @@ help:
 # Docker targets
 docker-build:
 	@echo "Building Docker image..."
-	docker build -t sslscan-go .
+	docker build -t sslscan .
 
 docker-run:
 	@echo "Running Docker container..."
-	docker run --rm sslscan-go --help
+	docker run --rm sslscan --help
 
 docker-example:
 	@echo "Running example in Docker..."
-	docker run --rm sslscan-go --verbose google.com
+	docker run --rm sslscan --verbose google.com

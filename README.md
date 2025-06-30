@@ -1,6 +1,6 @@
-# sslscan-go
+# sslscan
 
-sslscan-go is a comprehensive SSL/TLS security scanner written in Go. It scans servers for supported protocols, cipher suites, certificate analysis, and known vulnerabilities such as Heartbleed and CRIME.
+sslscan is a comprehensive SSL/TLS security scanner written in Go. It scans servers for supported protocols, cipher suites, certificate analysis, and known vulnerabilities such as Heartbleed and CRIME.
 
 ## Features
 - Detects supported SSL/TLS protocols (SSLv2, SSLv3, TLSv1.0, TLSv1.1, TLSv1.2, TLSv1.3)
@@ -13,13 +13,13 @@ sslscan-go is a comprehensive SSL/TLS security scanner written in Go. It scans s
 
 ```sh
 # Basic scan
-sslscan-go example.com
+sslscan example.com
 
 # Scan with custom port and output
-sslscan-go --port 8443 --xml results.xml example.com
+sslscan --port 8443 --xml results.xml example.com
 
 # Verbose scan with JUnit output
-sslscan-go --junit results.xml --verbose example.com
+sslscan --junit results.xml --verbose example.com
 ```
 
 ## Build
@@ -31,8 +31,8 @@ make build
 Or with Docker:
 
 ```sh
-docker build -t sslscan-go .
-docker run --rm sslscan-go --help
+docker build -t sslscan .
+docker run --rm sslscan --help
 ```
 
 ## Running Tests

@@ -1,0 +1,21 @@
+# Ignore everything by default
+*
+
+# Allow Go source files
+!*.go
+
+# Allow Go module files
+!go.mod
+!go.sum
+
+# Allow Dockerfile itself
+!Dockerfile
+
+# Allow specific directories that contain Go code
+!cmd/
+!internal/
+!pkg/
+
+# Allow specific files in root that might be needed
+!LICENSE
+!README.md
